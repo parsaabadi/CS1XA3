@@ -1,9 +1,12 @@
-##updated version
 #!/bin/bash
 
-rm ./todo.log
-grep -rin "#TODO" . | grep -v todo.log > /tmp/todo.log
-mv /tmp/todo.log ./
+rm -f ./todo.log
+IFS=$'\n'
+for f in `find . -type f | grep -v analysis.sh`; do
+  for line in `cat $f`; do
+    echo "$line #TODO" >> ./todo.log
+  done
+done
 
 FILES=".html:HTML
 .js:JavaScript
