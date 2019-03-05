@@ -1,1 +1,59 @@
-#TODO file
+#!/bin/bash #TODO
+FILETYPES=".html:HTML #TODO
+.js:JavaScript #TODO
+.css:CSS #TODO
+.py:Python #TODO
+.hs:Haskell #TODO
+.sh:Bash" #TODO
+function analysis { #TODO
+rm -f ./parsa.log #TODO
+grep -rin "#PARSA" . | grep -v parsa.log > /tmp/parsa.log #TODO
+mv /tmp/parsa.log ./ #TODO
+  rm -f ./todo.log #TODO
+  IFS=$'\n' #TODO
+  files=`find . -type f | egrep "\.(html|js|css|py|hs|sh)$" | grep -v "\.git" | grep -v analysis.sh` #TODO
+  for f in $files; do #TODO
+    for line in `cat $f`; do #TODO
+      echo "$line #TODO" >> ./todo.log #TODO
+    done #TODO
+  done #TODO
+  for line in $FILETYPES; do #TODO
+    ext=`echo $line | cut -d: -f1` #TODO
+    name=`echo $line | cut -d: -f2` #TODO
+    count=`find . -type f | grep "$ext" | wc -l` #TODO
+    echo "$name: $count" #TODO
+  done #TODO
+} #TODO
+function compile { #TODO
+  echo "" > compile_fail.log #TODO
+  for f in `find . -type f -name "*.py"`; do #TODO
+    python -m py_compile $f >> compile_fail.log 2>&1 #TODO
+  done #TODO
+  for f in `find . -type f -name "*.hs"`; do #TODO
+    ghc $f >> compile_fail.log 2>&1 #TODO
+  done #TODO
+} #TODO
+function untracked { #TODO
+  files=`git ls-files . --exclude-standard --others | grep "\.tmp"` #TODO
+  for f in $files; do #TODO
+    echo "removing file: $f" #TODO
+    rm $f #TODO
+  done #TODO
+} #TODO
+if [ $# -eq 0 ] #TODO
+  then #TODO
+    echo "No arguments supplied. Please provide --analysis, --compile, or --untracked" #TODO
+else #TODO
+  if [ "$1" == "--analysis" ] #TODO
+    then #TODO
+      analysis #TODO
+  elif [ "$1" == "--compile" ] #TODO
+    then #TODO
+      compile #TODO
+  elif [ "$1" == "--untracked" ] #TODO
+    then #TODO
+      untracked #TODO
+  else #TODO
+    echo "No arguments supplied. Please provide --analysis, --compile, or --untracked" #TODO
+  fi #TODO
+fi #TODO
