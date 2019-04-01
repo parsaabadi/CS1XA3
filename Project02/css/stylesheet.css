@@ -1,0 +1,10 @@
+body {
+    background: darkseagreen;
+    text-align: center;
+}
+#game-id {
+    text-align: center;
+    display: inline-block;
+    margin: auto auto;
+
+}
