@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href=" https://mac1xa3.ca/u/abadip1" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <title></title>
+  </head>
+  <body>
+    <input type="text" id="firstOnChange" name="" />
+    <input
+      type="text"
+      id="secondOnChange"
+      name=""
+    />
+    <br />
+    <span id="firstValue"></span>:<span id="secondValue"></span>
+    <script type="text/javascript">
+
+      const typeHandler = function(e, inputCategory) {
+        document.getElementById(inputCategory).innerHTML = e.target.value
+      }
+      
+      const $firstValue = document.querySelector('#firstOnChange');
+      $firstValue.addEventListener('input',  (e) => typeHandler(e, 'firstValue'))
+
+     const $secondValue = document.querySelector('#secondOnChange');
+      $secondValue.addEventListener('input', (e) => typeHandler(e, 'secondValue'))
+
+     
+    </script>
+  </body>
+</html>
