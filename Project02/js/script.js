@@ -69,7 +69,7 @@ $(document).ready(
             {
                 //restart game
                 load_game();
-                //Lets organize the code a bit now.
+                // organize the code a bit now.
                 return;
             }
             // if snake reaches the target
