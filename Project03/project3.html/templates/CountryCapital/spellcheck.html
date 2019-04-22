@@ -1,0 +1,31 @@
+{% extends "CountryCapital/base.html" %}
+{% block body_block %}
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Welcome to the SpellCapital !</h1>
+            {% if user.is_authenticated %}
+                <h3>Hello {{ user.username }}</h3>
+                <p>Let's Play the game of Spell Capital</p>
+                {% if show %}
+                    <p>{{ message }}</p>
+                {% endif %}
+                <canvas></canvas>
+
+                <button id='submitans' type="button">
+                    <span>Submit Answer</span>
+                </button>
+                <div style="position: absolute;bottom: 0; width: 100%; height: 200px">
+                    <h4>
+                        Game Rule
+                    </h4>
+                    <p>- Total number of unsuccesful attempt is 3, after that you lose</p>
+                    <p>- There are total 5 round to be played.</p>
+                    <p>Good Luck</p>
+                </div>
+            {% else %}
+                <h4>Register or Login if you'd like to</h4>
+                <p></p>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

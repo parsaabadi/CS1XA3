@@ -1,0 +1,34 @@
+{% extends "CountryCapital/base.html" %}
+{% block body_block %}
+    <div class="container">
+        <div class="jumbotron text-center col-mid-6">
+            <h1>Welcome to the SpellCapital !</h1>
+            <h3>Round {{ data.roundnumber.0 }}</h3>
+            {% if user.is_authenticated %}
+                <h3>Hello {{ user.username }}</h3>
+                {% if show %}
+                    <p style="color: darkgreen">{{ message }}</p>
+                {% endif %}
+                <br>
+                <br>
+
+                <canvas style="top:80%"></canvas>
+            {% else %}
+                <h4>Register or Login if you'd like to</h4>
+                <p></p>
+            {% endif %}
+        </div>
+        <div class="jumbotron text-center col-mid-6">
+            <p>Current Score: {{ data.curr_score.0 }}</p>
+            <p>Attempt Left: {{ data.totalattemptleft.0 }}</p>
+        </div>
+    </div>
+    <div style="position: absolute;bottom: 0; width: 100%; height: 200px">
+        <h4>
+            Game Rule
+        </h4>
+        <p>- Total number of unsuccesful attempt is 3, after that you lose</p>
+        <p>- There are total 5 round to be played.</p>
+        <p>Good Luck</p>
+    </div>
+{% endblock %}
