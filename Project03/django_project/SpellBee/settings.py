@@ -125,7 +125,7 @@ USE_TZ = True
 
 STATIC_URL = '/e/abadip1/static/' 
 STATICFILES_DIRS = [
-    "/home/macid/CS1XA3/public_html/",
-    STATIC_ROOT = "/home/macid/CS1XA3/django_project/static/"
+    "/home/abadip1/CS1XA3/public_html/",
+STATIC_ROOT = "/home/abadip1/CS1XA3/django_project/static/"
 
 
