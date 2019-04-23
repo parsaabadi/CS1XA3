@@ -123,7 +123,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-STATIC_URL = https://mac1xa3.ca/e/abadip1
+STATIC_URL = '/e/abadip1/static/' 
 STATICFILES_DIRS = [
     "/home/macid/CS1XA3/public_html/",
     STATIC_ROOT = "/home/macid/CS1XA3/django_project/static/"
