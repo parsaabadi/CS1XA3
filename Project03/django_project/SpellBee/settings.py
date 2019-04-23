@@ -122,9 +122,15 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
+STATIC_URL = '/e/abadip1/static/' 
+    # url to automatically access static files from
+STATICFILES_DIRS = [
+    "/home/abadip1/CS1XA3/Project03/",
+    # paths to collect static files from
+]
+STATIC_ROOT = "/home/abadip1/CS1XA3/django_project/static/"
+    # directory to store static files after colleted 
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [STATIC_DIR,]
 
 LOGIN_URL = '/countrycapital/user_login/'
 
