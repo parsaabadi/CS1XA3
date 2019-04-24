@@ -11,7 +11,7 @@
 #Steps to activate 
 #Step1:Login onto server
 #Step2:cd into CS1XA3
-#Ste3:source python_env/bin/activate 
+#Step3:source python_env/bin/activate 
 #Step4:cd into django_project/
 #Step5:python manage.py runserver 10000 
 #Step6:Enter Website Address:  https://mac1xa3.ca/e/abadip1/
